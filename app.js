@@ -34,7 +34,7 @@ const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
-const fitUsersController = require('./controllers/fitUsersController');
+const fitUsersController = require('./controllers/fituser');
 
 /**
  * API keys and Passport configuration.
@@ -221,14 +221,14 @@ app.get('/auth/pinterest/callback', passport.authorize('pinterest', { failureRed
  * MyFitLife routes.
  */
 
-app.route('/fitusers')
-  .get(fitUsersController.getUsers)
-  .post(fitUsersController.createUsers)
+// app.route('/fitusers')
+  // .get(fitUsersController.getUsers)
+  // .post(fitUsersController.createUsers)
 
 app.route('/users')
-  .get(fitUsersController.getUserTest)
+  .get(fitUsersController.getUsers)
 
-app.route('/fitusers/:fituser_id')
+app.route('/users/:user_id')
   .get(fitUsersController.getUser)
   .put(fitUsersController.updateUser)
   .delete(fitUsersController.deleteUser)
